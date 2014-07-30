@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block style_block %}
+    <style type="text/css">
+        table.table { width: 60%; }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <h1 id="">All Conferences</h1>
+    <div>&nbsp;</div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Conference Title</th>
+                <th>Description</th>
+                <th>Organizer</th>
+                <th>Topic</th>
+                <th>City</th>
+                <th>Start date</th>
+                <th>End date</th>
+                <th>Max Attendees</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for conference in conferences %}
+            {% set conference_id = conference.key.id() %}
+            <tr>
+                <td>{{ conference.name }}</td>
+                <td>{{ conference.desc }}</td>
+                <td>{{ conference.organizer }}</td>
+                <td>{{ conference.topic }}</td>
+                <td>{{ conference.city }}</td>
+                <td>{{ conference.start_date.strftime('%b %d, %Y') if conference.start_date }}</td>
+                <td>{{ conference.end_date.strftime('%b %d, %Y') if conference.end_date }}</td>
+                <td>{{ conference.max_attendees }}</td>
+            </tr>
+            {% else %}
+            <tr><td colspan="8">No conferences yet</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p>
+        <a class="btn btn-primary" href="{{ url_for('new_conference') }}">
+            <i class="icon-plus-sign icon-white"></i>
+            New conference
+        </a>
+    </p>
+{% endblock content %}

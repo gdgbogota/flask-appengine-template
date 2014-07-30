@@ -23,12 +23,12 @@ inbound_services:
 
 handlers:
 - url: /favicon.ico
-  static_files: application/static/img/favicon.ico
-  upload: application/static/img/favicon.ico
+  static_files: conference/static/img/favicon.ico
+  upload: conference/static/img/favicon.ico
 
 - url: /robots.txt
-  static_files: application/static/robots.txt
-  upload: application/static/robots.txt
+  static_files: conference/static/robots.txt
+  upload: conference/static/robots.txt
 
 - url: /gae_mini_profiler/static
   static_dir: lib/gae_mini_profiler/static
@@ -37,7 +37,7 @@ handlers:
   script: lib.gae_mini_profiler.main.application
 
 - url: /static
-  static_dir: application/static
+  static_dir: conference/static
 
 - url: .*
-  script: run.application.app
+  script: run.conference.app

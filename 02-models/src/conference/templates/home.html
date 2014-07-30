@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1 id="">Welcome to Conference Central</h1>
+    <div>&nbsp;</div>
+    <p>You can schedule conferences and register for conferences right here on this web site. We have a range of venues for conferences in some of the nicest places in the world.</p>
+    <div>&nbsp;</div>
+    <ul>
+        <li><a href="{{ url_for('new_conference') }}">Schedule a conference</a></li>
+        <li><a href="{{ url_for('list_conferences') }}">List conferences</a></li>
+    </ul>
+{% endblock content %}
